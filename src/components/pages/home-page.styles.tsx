@@ -6,6 +6,7 @@ export const HomeContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   flex: 1;
+  flex-direction: column;
 `;
 
 export const HomeTableContainer = styled(Box)`
