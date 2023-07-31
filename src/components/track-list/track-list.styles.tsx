@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 export const TrackListContainer = styled(Box)`
@@ -28,14 +28,14 @@ export const TrackListHeadContainer = styled(Box)`
   align-items: center;
 `;
 
-export const TrackListHeadTitle = styled(Typography)`
-  color: #2e3271 !important;
-  font-family: Inter !important;
-  font-size: 20px !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-  line-height: normal !important;
-  letter-spacing: 1px !important;
+export const TrackListHeadTitle = styled.p`
+  color: #2e3271;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
 `;
 
 export const TrackListTracksContainer = styled(Box)`

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -46,7 +46,7 @@ export const TrackDataContainer = styled(Box)`
   width: 55%;
 `;
 
-export const TrackName = styled(Typography)`
+export const TrackName = styled.p`
   color: #2e3271;
   font-family: Inter;
   font-size: 16px;
@@ -58,7 +58,7 @@ export const TrackName = styled(Typography)`
   text-overflow: ellipsis;
 `;
 
-export const TrackArtistName = styled(Typography)`
+export const TrackArtistName = styled.p`
   color: var(--secondary-color, rgba(124, 141, 181, 0.72));
   font-family: Inter;
   font-size: 14px;
@@ -86,7 +86,7 @@ export const TrackPlayButton = styled(Button)`
 
 export const TrackPlaySVG = styled(Image)``;
 
-export const TrackPlayLabel = styled(Typography)`
+export const TrackPlayLabel = styled.p`
   color: var(--primary-color, #313d58);
   font-family: Inter;
   font-size: 12px;
