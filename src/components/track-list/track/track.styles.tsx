@@ -74,10 +74,10 @@ export const TrackPlayButton = styled(Button)`
   border-radius: 14px !important;
   background: #fff;
   box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.06);
-  min-width: 78px;
-  max-width: 78px;
+  min-width: 78px !important;
+  max-width: 78px !important;
   min-height: 44px !important;
-  max-height: 44px;
+  max-height: 44px !important;
 
   &:hover {
     transform: scale(1.05);
