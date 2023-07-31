@@ -7,6 +7,7 @@ export const HomeContainer = styled(Box)`
   justify-content: center;
   flex: 1;
   flex-direction: column;
+  padding: 8px;
 `;
 
 export const HomeTableContainer = styled(Box)`
