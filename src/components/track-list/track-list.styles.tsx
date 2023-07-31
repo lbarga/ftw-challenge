@@ -29,13 +29,13 @@ export const TrackListHeadContainer = styled(Box)`
 `;
 
 export const TrackListHeadTitle = styled(Typography)`
-  color: #2e3271;
+  color: #2e3271 !important;
   font-family: Inter !important;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
+  font-size: 20px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: normal !important;
+  letter-spacing: 1px !important;
 `;
 
 export const TrackListTracksContainer = styled(Box)`
