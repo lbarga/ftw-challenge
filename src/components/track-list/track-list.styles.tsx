@@ -30,7 +30,7 @@ export const TrackListHeadContainer = styled(Box)`
 
 export const TrackListHeadTitle = styled(Typography)`
   color: #2e3271;
-  font-family: Inter;
+  font-family: Inter !important;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
