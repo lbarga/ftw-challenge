@@ -10,13 +10,20 @@ import { HomeContainer } from "./home-page.styles";
 
 export default function HomePage() {
   const [trackItems, setTrackItems] = useState<PlaylistTrackItemModel[]>([]);
+  const [currentTrack, setCurrentTrack] =
+    useState<PlaylistTrackItemModel | null>(null);
 
   const fetch = async () => {
     spotifyAccountsService.postCredentials().then(async () => {
       const response = await spotifyPlaylistsService.getPlaylist();
 
       setTrackItems(response.data.tracks.items);
+      setCurrentTrack(response.data.tracks.items[0]);
     });
+  };
+
+  const handleTrackClick = (trackItem: PlaylistTrackItemModel) => {
+    setCurrentTrack(trackItem);
   };
 
   useEffect(() => {
@@ -25,8 +32,8 @@ export default function HomePage() {
 
   return (
     <HomeContainer>
-      <TrackList trackItems={trackItems} />
-      <Player />
+      <TrackList trackItems={trackItems} onTrackClick={handleTrackClick} />
+      <Player trackItem={currentTrack} />
     </HomeContainer>
   );
 }

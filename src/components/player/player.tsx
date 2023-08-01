@@ -1,4 +1,5 @@
-import { IconButton } from "@mui/material";
+import { PlaylistTrackItemModel } from "@/models/playlist-model";
+import { CircularProgress, IconButton } from "@mui/material";
 import { BackIcon } from "../icons/back-icon";
 import { FastForwardIcon } from "../icons/fast-forward-icon";
 import { NextIcon } from "../icons/next-icon";
@@ -10,6 +11,7 @@ import {
   PlayerContainer,
   PlayerContentContainer,
   PlayerImage,
+  PlayerLoaderContainer,
   PlayerPlayButton,
   PlayerSlider,
   PlayerTimeContainer,
@@ -18,56 +20,63 @@ import {
   PlayerTrackTitle,
 } from "./player.styles";
 
-// TODO: criar um contexto e trazer musicas de la
-const mockTrack = {
-  url: "https://i.scdn.co/image/ab67616d00001e027d419ac975423c069995c7bb",
-  trackName: "",
+type PlayerProps = {
+  trackItem: PlaylistTrackItemModel | null;
 };
 
-export const Player = () => {
+export const Player = ({ trackItem }: PlayerProps) => {
   return (
     <PlayerContainer>
-      <PlayerContentContainer>
-        <PlayerImage
-          src={mockTrack.url}
-          width={248}
-          height={213}
-          alt="Picture of the author"
-        />
-        <Space height={24} />
-        <PlayerTrackTitle>Living My Best Life</PlayerTrackTitle>
-        <Space height={16} />
-        <PlayerTrackArtist>Ben Hector</PlayerTrackArtist>
-        <Space height={24} />
-        <PlayerSlider
-          size="small"
-          defaultValue={70}
-          aria-label="Small"
-          valueLabelDisplay="auto"
-        />
-        <PlayerTimeContainer>
-          <PlayerTimeLabel>1:21</PlayerTimeLabel>
-          <PlayerTimeLabel>-2:36</PlayerTimeLabel>
-        </PlayerTimeContainer>
-        <Space height={8} />
-        <PlayerButtonsContainer>
-          <IconButton size="small" color="primary">
-            <BackIcon />
-          </IconButton>
-          <IconButton size="small" color="primary">
-            <PreviousIcon />
-          </IconButton>
-          <PlayerPlayButton variant="contained" color="primary">
-            <PlayIcon />
-          </PlayerPlayButton>
-          <IconButton size="small" color="primary">
-            <FastForwardIcon />
-          </IconButton>
-          <IconButton size="small" color="primary">
-            <NextIcon />
-          </IconButton>
-        </PlayerButtonsContainer>
-      </PlayerContentContainer>
+      {!trackItem && (
+        <PlayerLoaderContainer>
+          <CircularProgress size={"5rem"} />
+        </PlayerLoaderContainer>
+      )}
+      {trackItem && (
+        <PlayerContentContainer>
+          <PlayerImage
+            src={trackItem?.track.album.images[1].url}
+            width={248}
+            height={213}
+            alt="Picture of the author"
+          />
+          <Space height={24} />
+          <PlayerTrackTitle>{trackItem.track.name}</PlayerTrackTitle>
+          <Space height={16} />
+          <PlayerTrackArtist>
+            {trackItem.track.artists[0].name}
+          </PlayerTrackArtist>
+          <Space height={24} />
+          <PlayerSlider
+            size="small"
+            defaultValue={70}
+            aria-label="Small"
+            valueLabelDisplay="auto"
+          />
+          <PlayerTimeContainer>
+            <PlayerTimeLabel>1:21</PlayerTimeLabel>
+            <PlayerTimeLabel>-2:36</PlayerTimeLabel>
+          </PlayerTimeContainer>
+          <Space height={8} />
+          <PlayerButtonsContainer>
+            <IconButton size="small" color="primary">
+              <BackIcon />
+            </IconButton>
+            <IconButton size="small" color="primary">
+              <PreviousIcon />
+            </IconButton>
+            <PlayerPlayButton variant="contained" color="primary">
+              <PlayIcon />
+            </PlayerPlayButton>
+            <IconButton size="small" color="primary">
+              <FastForwardIcon />
+            </IconButton>
+            <IconButton size="small" color="primary">
+              <NextIcon />
+            </IconButton>
+          </PlayerButtonsContainer>
+        </PlayerContentContainer>
+      )}
     </PlayerContainer>
   );
 };
