@@ -1,7 +1,8 @@
+import MaterialRegistry from "@/registries/material-registry";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import StyledJsxRegistry from "../registries/styled-registry";
 import "./globals.css";
-import StyledJsxRegistry from "./registry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>{" "}
       <body>
-        <StyledJsxRegistry>{children}</StyledJsxRegistry>
+        <StyledJsxRegistry>
+          <MaterialRegistry>{children}</MaterialRegistry>
+        </StyledJsxRegistry>
       </body>
     </html>
   );

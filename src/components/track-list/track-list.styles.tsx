@@ -10,18 +10,17 @@ export const TrackListContainer = styled(Box)`
   box-shadow: 0px 4px 50px 15px rgba(99, 60, 247, 0.04);
   overflow: hidden;
   flex-direction: column;
+  background-color: #fafafa;
 
   @media (max-width: 768px) {
     max-width: 95vw;
   }
-
-  background-color: #f7f7f7;
 `;
 
 export const TrackListHeadContainer = styled(Box)`
   display: flex;
   flex: 1;
-  background: #fff;
+  background: #fdfeff;
   min-height: 80px;
   max-height: 80px;
   padding: 0px 32px;
