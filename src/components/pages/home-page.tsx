@@ -18,8 +18,12 @@ export default function HomePage() {
     spotifyAccountsService.postCredentials().then(async () => {
       const response = await spotifyPlaylistsService.getPlaylist();
 
-      setTrackItems(response.data.tracks.items);
-      setCurrentTrack(response.data.tracks.items[0]);
+      const tracksWithPreviewUrl = response.data.tracks.items.filter(
+        (trackItem) => trackItem.track.preview_url !== null
+      );
+
+      setTrackItems(tracksWithPreviewUrl);
+      setCurrentTrack(tracksWithPreviewUrl[0]);
       setCurrentTrackIndex(0);
     });
   };
