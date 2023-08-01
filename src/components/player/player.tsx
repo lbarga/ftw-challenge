@@ -87,7 +87,10 @@ export const Player = ({
         }
       }, 500);
 
-      audio?.addEventListener("ended", handleStopAudio);
+      audio?.addEventListener("ended", () => {
+        handleStopAudio();
+        onClickNextTack();
+      });
     }
 
     if (playing) {
@@ -104,6 +107,15 @@ export const Player = ({
   const handleJumpBackward = () => {
     if (audio) {
       audio.currentTime -= 3;
+    }
+  };
+
+  const handleChangeSlider = (event: Event, newValue: number | number[]) => {
+    if (audio) {
+      const sliderValue = typeof newValue === "number" ? newValue : 0;
+      const newTime = (sliderValue / 100) * totalTime;
+      audio.currentTime = newTime;
+      setCurrentTime(newTime);
     }
   };
 
@@ -164,7 +176,8 @@ export const Player = ({
             size="small"
             value={getPercentageCompleted()}
             aria-label="Small"
-            valueLabelDisplay="auto"
+            valueLabelDisplay="off"
+            onChange={handleChangeSlider}
           />
           <PlayerTimeContainer>
             <PlayerTimeLabel>{getCurrentTime()}</PlayerTimeLabel>
