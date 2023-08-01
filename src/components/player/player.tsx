@@ -87,7 +87,10 @@ export const Player = ({
         }
       }, 500);
 
-      audio?.addEventListener("ended", handleStopAudio);
+      audio?.addEventListener("ended", () => {
+        handleStopAudio();
+        onClickNextTack();
+      });
     }
 
     if (playing) {
