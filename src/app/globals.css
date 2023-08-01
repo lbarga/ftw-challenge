@@ -16,8 +16,9 @@ p {
 }
 
 .MuiSlider-thumb:not(.MuiSlider-active) {
-  transition: left 500ms ease-in;
+  transition: left 500ms ease-in !important;
 }
+
 .MuiSlider-track {
-  transition: width 500ms ease-in;
+  transition: width 500ms ease-in !important;
 }
