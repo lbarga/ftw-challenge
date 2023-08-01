@@ -24,4 +24,5 @@ interface PlaylistTrackModel {
 export interface PlaylistModel {
   id: string;
   tracks: PlaylistTrackModel;
+  name: string;
 }

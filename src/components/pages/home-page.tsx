@@ -13,6 +13,7 @@ export default function HomePage() {
   const [currentTrack, setCurrentTrack] =
     useState<PlaylistTrackItemModel | null>(null);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [playlistName, setPLaylistName] = useState("");
 
   const fetch = async () => {
     spotifyAccountsService.postCredentials().then(async () => {
@@ -21,10 +22,12 @@ export default function HomePage() {
       const tracksWithPreviewUrl = response.data.tracks.items.filter(
         (trackItem) => trackItem.track.preview_url !== null
       );
+      const playlistName = response.data.name;
 
       setTrackItems(tracksWithPreviewUrl);
       setCurrentTrack(tracksWithPreviewUrl[0]);
       setCurrentTrackIndex(0);
+      setPLaylistName(playlistName);
     });
   };
 
@@ -58,7 +61,11 @@ export default function HomePage() {
 
   return (
     <HomeContainer>
-      <TrackList trackItems={trackItems} onTrackClick={handleTrackClick} />
+      <TrackList
+        trackItems={trackItems}
+        onTrackClick={handleTrackClick}
+        playlistName={playlistName}
+      />
       <Player
         trackItem={currentTrack}
         onClickBackTack={handleClickBackTrack}

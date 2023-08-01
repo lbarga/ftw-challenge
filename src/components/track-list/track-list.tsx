@@ -10,14 +10,21 @@ import { Track } from "./track/track";
 
 type TrackListProps = {
   trackItems: PlaylistTrackItemModel[];
+  playlistName: string;
   onTrackClick: (trackItem: PlaylistTrackItemModel, index: number) => void;
 };
 
-export const TrackList = ({ trackItems, onTrackClick }: TrackListProps) => {
+export const TrackList = ({
+  trackItems,
+  playlistName,
+  onTrackClick,
+}: TrackListProps) => {
   return (
     <TrackListContainer>
       <TrackListHeadContainer>
-        <TrackListHeadTitle>Playlist Name</TrackListHeadTitle>
+        <TrackListHeadTitle>{`Playlist ${
+          playlistName ? playlistName : "loading..."
+        }`}</TrackListHeadTitle>
       </TrackListHeadContainer>
       <TrackListTracksContainer>
         {trackItems.length === 0 && <TrackListSkeleton />}
