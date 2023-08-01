@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 export const TrackContainer = styled(Box)`
   display: flex;
-  flex: 1;
   width: 644px;
   border-radius: 24px;
   background: #fff;
@@ -31,11 +30,11 @@ export const TrackInternalContainer = styled(Box)`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  margin: 0px 32px;
+  padding: 0px 32px;
 
   @media (max-width: 768px) {
-    margin: 0px;
-    justify-content: space-around;
+    padding: 0px 8px;
+    justify-content: space-between;
   }
 `;
 
@@ -43,7 +42,10 @@ export const TrackDataContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   white-space: nowrap;
-  width: 55%;
+
+  @media (max-width: 768px) {
+    max-width: 120px;
+  }
 `;
 
 export const TrackName = styled.p`
