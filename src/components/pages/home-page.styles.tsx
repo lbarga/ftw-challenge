@@ -6,8 +6,9 @@ export const HomeContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   padding: 8px;
+  gap: 32px;
 `;
 
 export const HomeTableContainer = styled(Box)`
