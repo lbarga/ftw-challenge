@@ -40,6 +40,7 @@ export const Player = ({
   const [currentTime, setCurrentTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [firstTime, setFirstTime] = useState(true);
 
   const handleStopAudio = () => {
     if (audio) {
@@ -139,7 +140,13 @@ export const Player = ({
   };
 
   useEffect(() => {
-    handlePlayAudio();
+    if (audio) {
+      setFirstTime(false);
+
+      if (!firstTime) {
+        handlePlayAudio();
+      }
+    }
   }, [audio]);
 
   useEffect(() => {
