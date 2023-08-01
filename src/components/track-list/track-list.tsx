@@ -10,7 +10,7 @@ import { Track } from "./track/track";
 
 type TrackListProps = {
   trackItems: PlaylistTrackItemModel[];
-  onTrackClick: (trackItem: PlaylistTrackItemModel) => void;
+  onTrackClick: (trackItem: PlaylistTrackItemModel, index: number) => void;
 };
 
 export const TrackList = ({ trackItems, onTrackClick }: TrackListProps) => {
@@ -21,7 +21,7 @@ export const TrackList = ({ trackItems, onTrackClick }: TrackListProps) => {
       </TrackListHeadContainer>
       <TrackListTracksContainer>
         {trackItems.length === 0 && <TrackListSkeleton />}
-        {trackItems?.map((trackItem) => {
+        {trackItems?.map((trackItem, index) => {
           return (
             <Track
               key={trackItem.track.id}
@@ -29,7 +29,7 @@ export const TrackList = ({ trackItems, onTrackClick }: TrackListProps) => {
               trackName={trackItem.track.name}
               artistName={trackItem.track.artists[0].name}
               popularity={trackItem.track.popularity}
-              onClick={() => onTrackClick(trackItem)}
+              onClick={() => onTrackClick(trackItem, index)}
             />
           );
         })}

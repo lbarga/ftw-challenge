@@ -11,14 +11,14 @@ export const BackIcon = () => {
         d="M9 1.65448L1 7.68368L9 13.7129V1.65448Z"
         fill="url(#paint0_linear_0_19)"
         stroke="url(#paint1_linear_0_19)"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <path
         d="M1 2.65936V12.708"
         stroke="url(#paint2_linear_0_19)"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <defs>
         <linearGradient
@@ -29,8 +29,8 @@ export const BackIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_0_19"
@@ -40,8 +40,8 @@ export const BackIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_0_19"
@@ -51,8 +51,8 @@ export const BackIcon = () => {
           y2="-2.16789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
       </defs>
     </svg>

@@ -10,6 +10,7 @@ interface TrackModel {
     name: string;
   }[];
   popularity: number;
+  preview_url: string;
 }
 
 export interface PlaylistTrackItemModel {
