@@ -107,6 +107,15 @@ export const Player = ({
     }
   };
 
+  const handleChangeSlider = (event: Event, newValue: number | number[]) => {
+    if (audio) {
+      const sliderValue = typeof newValue === "number" ? newValue : 0;
+      const newTime = (sliderValue / 100) * totalTime;
+      audio.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
   const getCurrentTime = (): string => {
     return formatPlayerTime(currentTime);
   };
@@ -164,7 +173,8 @@ export const Player = ({
             size="small"
             value={getPercentageCompleted()}
             aria-label="Small"
-            valueLabelDisplay="auto"
+            valueLabelDisplay="off"
+            onChange={handleChangeSlider}
           />
           <PlayerTimeContainer>
             <PlayerTimeLabel>{getCurrentTime()}</PlayerTimeLabel>
