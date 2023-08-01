@@ -11,15 +11,15 @@ export const FastForwardIcon = () => {
         d="M1 1.65448L9 7.68368L1 13.7129V1.65448Z"
         fill="url(#paint0_linear_0_9)"
         stroke="url(#paint1_linear_0_9)"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <path
         d="M8 1.65448L16 7.68368L8 13.7129V1.65448Z"
         fill="url(#paint2_linear_0_9)"
         stroke="url(#paint3_linear_0_9)"
-        stroke-width="2"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <defs>
         <linearGradient
@@ -30,8 +30,8 @@ export const FastForwardIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_0_9"
@@ -41,8 +41,8 @@ export const FastForwardIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_0_9"
@@ -52,8 +52,8 @@ export const FastForwardIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_0_9"
@@ -63,8 +63,8 @@ export const FastForwardIcon = () => {
           y2="2.99605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7E3A" />
-          <stop offset="1" stop-color="#FF9A45" />
+          <stop stopColor="#FF7E3A" />
+          <stop offset="1" stopColor="#FF9A45" />
         </linearGradient>
       </defs>
     </svg>

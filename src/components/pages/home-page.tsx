@@ -10,13 +10,42 @@ import { HomeContainer } from "./home-page.styles";
 
 export default function HomePage() {
   const [trackItems, setTrackItems] = useState<PlaylistTrackItemModel[]>([]);
+  const [currentTrack, setCurrentTrack] =
+    useState<PlaylistTrackItemModel | null>(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   const fetch = async () => {
     spotifyAccountsService.postCredentials().then(async () => {
       const response = await spotifyPlaylistsService.getPlaylist();
 
       setTrackItems(response.data.tracks.items);
+      setCurrentTrack(response.data.tracks.items[0]);
+      setCurrentTrackIndex(0);
     });
+  };
+
+  const handleTrackClick = (
+    trackItem: PlaylistTrackItemModel,
+    index: number
+  ) => {
+    setCurrentTrack(trackItem);
+    setCurrentTrackIndex(index);
+  };
+
+  const handleClickBackTrack = () => {
+    if (currentTrackIndex > 0) {
+      const newIndex = currentTrackIndex - 1;
+      setCurrentTrackIndex(newIndex);
+      setCurrentTrack(trackItems[newIndex]);
+    }
+  };
+
+  const handleClickNextTrack = () => {
+    if (currentTrackIndex < trackItems.length - 1) {
+      const newIndex = currentTrackIndex + 1;
+      setCurrentTrackIndex(newIndex);
+      setCurrentTrack(trackItems[newIndex]);
+    }
   };
 
   useEffect(() => {
@@ -25,8 +54,12 @@ export default function HomePage() {
 
   return (
     <HomeContainer>
-      <TrackList trackItems={trackItems} />
-      <Player />
+      <TrackList trackItems={trackItems} onTrackClick={handleTrackClick} />
+      <Player
+        trackItem={currentTrack}
+        onClickBackTack={handleClickBackTrack}
+        onClickNextTack={handleClickNextTrack}
+      />
     </HomeContainer>
   );
 }

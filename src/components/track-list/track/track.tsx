@@ -15,6 +15,7 @@ type TrackProps = {
   trackName: string;
   artistName: string;
   popularity: number;
+  onClick: () => void;
 };
 
 export const Track = ({
@@ -22,6 +23,7 @@ export const Track = ({
   trackName,
   artistName,
   popularity,
+  onClick,
 }: TrackProps) => {
   return (
     <TrackContainer>
@@ -36,7 +38,7 @@ export const Track = ({
           <TrackName>{trackName}</TrackName>
           <TrackArtistName>{artistName}</TrackArtistName>
         </TrackDataContainer>
-        <TrackPlayButton>
+        <TrackPlayButton onClick={onClick}>
           <TrackPlaySVG src="/play.svg" width={10} height={12} alt="play-svg" />
           <TrackPlayLabel>{popularity}</TrackPlayLabel>
         </TrackPlayButton>

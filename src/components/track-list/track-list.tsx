@@ -10,9 +10,10 @@ import { Track } from "./track/track";
 
 type TrackListProps = {
   trackItems: PlaylistTrackItemModel[];
+  onTrackClick: (trackItem: PlaylistTrackItemModel, index: number) => void;
 };
 
-export const TrackList = ({ trackItems }: TrackListProps) => {
+export const TrackList = ({ trackItems, onTrackClick }: TrackListProps) => {
   return (
     <TrackListContainer>
       <TrackListHeadContainer>
@@ -20,14 +21,15 @@ export const TrackList = ({ trackItems }: TrackListProps) => {
       </TrackListHeadContainer>
       <TrackListTracksContainer>
         {trackItems.length === 0 && <TrackListSkeleton />}
-        {trackItems?.map((trackItem) => {
+        {trackItems?.map((trackItem, index) => {
           return (
             <Track
               key={trackItem.track.id}
-              url={trackItem.track.album.images[0].url}
+              url={trackItem.track.album.images[2].url}
               trackName={trackItem.track.name}
               artistName={trackItem.track.artists[0].name}
               popularity={trackItem.track.popularity}
+              onClick={() => onTrackClick(trackItem, index)}
             />
           );
         })}

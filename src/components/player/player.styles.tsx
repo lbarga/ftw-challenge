@@ -31,6 +31,7 @@ export const PlayerTrackTitle = styled.p`
   font-weight: 400;
   line-height: normal;
   letter-spacing: 1px;
+  text-align: center;
 `;
 
 export const PlayerTrackArtist = styled.p`
@@ -79,4 +80,11 @@ export const PlayerTimeLabel = styled.p`
 
 export const PlayerSlider = styled(Slider)`
   padding: 4px !important;
+`;
+
+export const PlayerLoaderContainer = styled(Box)`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
