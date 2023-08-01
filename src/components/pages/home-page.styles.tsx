@@ -3,12 +3,17 @@ import styled from "styled-components";
 
 export const HomeContainer = styled(Box)`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  flex: 1;
   flex-direction: row;
   padding: 8px;
   gap: 32px;
+  background: #f6f6f6;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const HomeTableContainer = styled(Box)`
